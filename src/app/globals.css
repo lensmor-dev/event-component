@@ -1,0 +1,337 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ===== Design Tokens: Primitives (基础设计变量) ===== */
+:root {
+  /* Neutral 中性色 */
+  --neutral-50: 250 250 250;
+  --neutral-100: 245 245 245;
+  --neutral-200: 220 221 229;
+  --neutral-300: 197 198 214;
+  --neutral-400: 148 149 168;
+  --neutral-500: 102 104 122;
+  --neutral-600: 73 73 92;
+  --neutral-700: 50 51 66;
+  --neutral-800: 38 39 51;
+  --neutral-900: 30 30 41;
+  --neutral-950: 22 22 31;
+
+  /* Primary 主品牌色 */
+  --primary-50: 235 236 255;
+  --primary-100: 214 217 255;
+  --primary-200: 189 193 255;
+  --primary-300: 158 165 255;
+  --primary-400: 128 136 255;
+  --primary-500: 107 117 255;
+  --primary-600: 83 94 245;
+  --primary-700: 64 75 214;
+  --primary-800: 55 64 184;
+  --primary-900: 55 62 153;
+  --primary-950: 44 49 122;
+
+  /* Success 成功色 */
+  --success-50: 237 248 242;
+  --success-100: 219 241 230;
+  --success-200: 183 226 205;
+  --success-300: 148 212 180;
+  --success-400: 112 197 155;
+  --success-500: 76 183 130;
+  --success-600: 46 163 105;
+  --success-700: 27 133 80;
+  --success-800: 12 102 58;
+  --success-900: 6 77 41;
+  --success-950: 2 51 27;
+
+  /* Danger 危险色 */
+  --danger-50: 253 238 238;
+  --danger-100: 251 221 221;
+  --danger-200: 247 188 188;
+  --danger-300: 243 154 154;
+  --danger-400: 239 121 121;
+  --danger-500: 235 87 87;
+  --danger-600: 209 54 54;
+  --danger-700: 184 26 26;
+  --danger-800: 153 18 18;
+  --danger-900: 128 23 23;
+  --danger-950: 82 12 12;
+
+  /* Warning 警告色 */
+  --warning-50: 253 245 236;
+  --warning-100: 252 236 217;
+  --warning-200: 249 217 180;
+  --warning-300: 246 197 142;
+  --warning-400: 243 178 105;
+  --warning-500: 240 159 67;
+  --warning-600: 219 133 35;
+  --warning-700: 194 109 12;
+  --warning-800: 153 84 15;
+  --warning-900: 112 61 16;
+  --warning-950: 71 35 7;
+
+  /* 黑白色 */
+  --white: 255 255 255;
+  --black: 0 0 0;
+
+  /* 字体 */
+  --font-family-inter: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* 字号 */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
+  --font-size-4xl: 36px;
+  --font-size-5xl: 48px;
+
+  /* 字重 */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* 行高 */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+}
+
+/* ===== Tailwind Theme Configuration ===== */
+@theme inline {
+  /* Colors */
+  --color-neutral-50: rgb(var(--neutral-50));
+  --color-neutral-100: rgb(var(--neutral-100));
+  --color-neutral-200: rgb(var(--neutral-200));
+  --color-neutral-300: rgb(var(--neutral-300));
+  --color-neutral-400: rgb(var(--neutral-400));
+  --color-neutral-500: rgb(var(--neutral-500));
+  --color-neutral-600: rgb(var(--neutral-600));
+  --color-neutral-700: rgb(var(--neutral-700));
+  --color-neutral-800: rgb(var(--neutral-800));
+  --color-neutral-900: rgb(var(--neutral-900));
+  --color-neutral-950: rgb(var(--neutral-950));
+
+  --color-primary-50: rgb(var(--primary-50));
+  --color-primary-100: rgb(var(--primary-100));
+  --color-primary-200: rgb(var(--primary-200));
+  --color-primary-300: rgb(var(--primary-300));
+  --color-primary-400: rgb(var(--primary-400));
+  --color-primary-500: rgb(var(--primary-500));
+  --color-primary-600: rgb(var(--primary-600));
+  --color-primary-700: rgb(var(--primary-700));
+  --color-primary-800: rgb(var(--primary-800));
+  --color-primary-900: rgb(var(--primary-900));
+  --color-primary-950: rgb(var(--primary-950));
+
+  --color-success-50: rgb(var(--success-50));
+  --color-success-100: rgb(var(--success-100));
+  --color-success-200: rgb(var(--success-200));
+  --color-success-300: rgb(var(--success-300));
+  --color-success-400: rgb(var(--success-400));
+  --color-success-500: rgb(var(--success-500));
+  --color-success-600: rgb(var(--success-600));
+  --color-success-700: rgb(var(--success-700));
+  --color-success-800: rgb(var(--success-800));
+  --color-success-900: rgb(var(--success-900));
+  --color-success-950: rgb(var(--success-950));
+
+  --color-danger-50: rgb(var(--danger-50));
+  --color-danger-100: rgb(var(--danger-100));
+  --color-danger-200: rgb(var(--danger-200));
+  --color-danger-300: rgb(var(--danger-300));
+  --color-danger-400: rgb(var(--danger-400));
+  --color-danger-500: rgb(var(--danger-500));
+  --color-danger-600: rgb(var(--danger-600));
+  --color-danger-700: rgb(var(--danger-700));
+  --color-danger-800: rgb(var(--danger-800));
+  --color-danger-900: rgb(var(--danger-900));
+  --color-danger-950: rgb(var(--danger-950));
+
+  --color-warning-50: rgb(var(--warning-50));
+  --color-warning-100: rgb(var(--warning-100));
+  --color-warning-200: rgb(var(--warning-200));
+  --color-warning-300: rgb(var(--warning-300));
+  --color-warning-400: rgb(var(--warning-400));
+  --color-warning-500: rgb(var(--warning-500));
+  --color-warning-600: rgb(var(--warning-600));
+  --color-warning-700: rgb(var(--warning-700));
+  --color-warning-800: rgb(var(--warning-800));
+  --color-warning-900: rgb(var(--warning-900));
+  --color-warning-950: rgb(var(--warning-950));
+
+  /* Semantic Colors - mapped to tokens */
+  --color-background: rgb(var(--background));
+  --color-foreground: rgb(var(--foreground));
+  --color-card: rgb(var(--card));
+  --color-card-foreground: rgb(var(--card-foreground));
+  --color-popover: rgb(var(--popover));
+  --color-popover-foreground: rgb(var(--popover-foreground));
+  --color-primary: rgb(var(--primary));
+  --color-primary-foreground: rgb(var(--primary-foreground));
+  --color-secondary: rgb(var(--secondary));
+  --color-secondary-foreground: rgb(var(--secondary-foreground));
+  --color-muted: rgb(var(--muted));
+  --color-muted-foreground: rgb(var(--muted-foreground));
+  --color-accent: rgb(var(--accent));
+  --color-accent-foreground: rgb(var(--accent-foreground));
+  --color-destructive: rgb(var(--destructive));
+  --color-destructive-foreground: rgb(var(--destructive-foreground));
+  --color-success: rgb(var(--success));
+  --color-success-foreground: rgb(var(--success-foreground));
+  --color-warning: rgb(var(--warning));
+  --color-warning-foreground: rgb(var(--warning-foreground));
+  --color-border: rgb(var(--border));
+  --color-input: rgb(var(--input));
+  --color-ring: rgb(var(--ring));
+
+  /* Radius */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+  --radius-full: 9999px;
+
+  /* Spacing & Padding */
+  --spacing-0: 0px;
+  --spacing-1: 2px;
+  --spacing-2: 4px;
+  --spacing-3: 8px;
+  --spacing-4: 12px;
+  --spacing-5: 16px;
+  --spacing-6: 24px;
+  --spacing-7: 32px;
+  --spacing-8: 40px;
+  --spacing-9: 48px;
+  --spacing-10: 64px;
+
+  /* Font family */
+  --font-sans: var(--font-family-inter);
+}
+
+/* ===== Light Theme (浅色主题) ===== */
+:root {
+  /* Background */
+  --background: var(--white);
+  --card: var(--white);
+  --popover: var(--white);
+  --muted: var(--neutral-50);
+  --accent: var(--neutral-200);
+  --input: var(--neutral-100);
+
+  /* Foreground */
+  --foreground: var(--neutral-950);
+  --card-foreground: var(--neutral-950);
+  --popover-foreground: var(--neutral-950);
+  --muted-foreground: var(--neutral-400);
+  --accent-foreground: var(--neutral-900);
+
+  /* Primary */
+  --primary: var(--primary-500);
+  --primary-foreground: var(--white);
+
+  /* Secondary */
+  --secondary: var(--neutral-100);
+  --secondary-foreground: var(--neutral-950);
+
+  /* Destructive */
+  --destructive: var(--danger-500);
+  --destructive-foreground: var(--white);
+
+  /* Success */
+  --success: var(--success-500);
+  --success-foreground: var(--white);
+
+  /* Warning */
+  --warning: var(--warning-500);
+  --warning-foreground: var(--white);
+
+  /* Border & Ring */
+  --border: var(--neutral-200);
+  --ring: var(--primary-500);
+}
+
+/* ===== Dark Theme (深色主题) ===== */
+.dark {
+  /* Background */
+  --background: var(--neutral-950);
+  --card: var(--neutral-950);
+  --popover: var(--neutral-900);
+  --muted: var(--neutral-900);
+  --accent: var(--neutral-700);
+  --input: var(--neutral-900);
+
+  /* Foreground */
+  --foreground: var(--neutral-50);
+  --card-foreground: var(--neutral-50);
+  --popover-foreground: var(--neutral-50);
+  --muted-foreground: var(--neutral-600);
+  --accent-foreground: var(--neutral-100);
+
+  /* Primary */
+  --primary: var(--primary-500);
+  --primary-foreground: var(--white);
+
+  /* Secondary */
+  --secondary: var(--neutral-800);
+  --secondary-foreground: var(--neutral-50);
+
+  /* Destructive */
+  --destructive: var(--danger-500);
+  --destructive-foreground: var(--white);
+
+  /* Success */
+  --success: var(--success-500);
+  --success-foreground: var(--white);
+
+  /* Warning */
+  --warning: var(--warning-500);
+  --warning-foreground: var(--white);
+
+  /* Border & Ring */
+  --border: var(--neutral-700);
+  --ring: var(--primary-500);
+}
+
+/* ===== Base Styles ===== */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-family-inter);
+  }
+
+  h1 {
+    @apply text-5xl font-bold;
+  }
+
+  h2 {
+    @apply text-4xl font-bold;
+  }
+
+  h3 {
+    @apply text-3xl font-semibold;
+  }
+
+  h4 {
+    @apply text-2xl font-semibold;
+  }
+
+  h5 {
+    @apply text-xl font-semibold;
+  }
+
+  h6 {
+    @apply text-lg font-semibold;
+  }
+}
